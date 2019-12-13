@@ -22,11 +22,15 @@
 <body>
   
   <div class="container">
-    <canvas id="line-chart"></canvas>
+    <canvas id="fatturato-chart"></canvas>
   </div>
 
   <div class="container">
-    <canvas id="pie-chart"></canvas>
+    <canvas id="fatturato-agent-chart"></canvas>
+  </div>
+
+  <div class="container">
+    <canvas id="efficiency-chart"></canvas>
   </div>
 
 </body>
