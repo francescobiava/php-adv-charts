@@ -4,17 +4,26 @@ function init() {
   getCharts();
 }
 
+// FUNCTIONS
 function getCharts() {
+  var url_string = window.location.href;
+  var url = new URL(url_string);
+  var level = url.searchParams.get('level');
+  console.log(level);
+  
   $.ajax({
-    url: 'getAllCharts.php',
+    url: 'getChartsByAccess.php',
+    data: {
+      level: level
+    },
     method: 'GET',
     success: function (data) {
-      printLineChart(data['fatturato']);
-      printPieChart(data['fatturato_by_agent']);
-      printMultiLineChart(data['team_efficiency']);
+      printLineChart(data[0]);
+      printPieChart(data[1]);
+      printMultiLineChart(data[2]);
     },
     error: function (error) {
-      console.log(error);
+      console.log('error', error);
     }
   });
 }
