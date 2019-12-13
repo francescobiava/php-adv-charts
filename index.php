@@ -21,7 +21,13 @@
 
 <body>
   
-  <div class="container"></div>
+  <div class="container">
+    <canvas id="line-chart"></canvas>
+  </div>
+
+  <div class="container">
+    <canvas id="pie-chart"></canvas>
+  </div>
 
 </body>
 
