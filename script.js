@@ -9,7 +9,6 @@ function getCharts() {
   var url_string = window.location.href;
   var url = new URL(url_string);
   var level = url.searchParams.get('level');
-  console.log(level);
   
   $.ajax({
     url: 'getChartsByAccess.php',
@@ -18,9 +17,9 @@ function getCharts() {
     },
     method: 'GET',
     success: function (data) {
-      printLineChart(data[0]);
-      printPieChart(data[1]);
-      printMultiLineChart(data[2]);
+      printLineChart(data['fatturato']);
+      printPieChart(data['fatturato_by_agent']);
+      printMultiLineChart(data['team_efficiency']);
     },
     error: function (error) {
       console.log('error', error);

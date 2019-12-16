@@ -6,25 +6,15 @@ include 'data.php';
 $level = $_GET['level'];
 $output = [];
 
-if ($level == 'guest') {
-  foreach ($graphs as $chart) {
-    if ($chart['access'] == $level) {
-      $output[] = $chart;
-    }
+foreach ($graphs as $key => $graph) {
+  if ($graph['access'] == 'guest') {
+    $output [$key] = $graph;
   }
-}
-
-if ($level == 'employee') {
-  foreach ($graphs as $chart) {
-    if ($chart['access'] == $level || $chart['access'] == 'guest') {
-      $output[] = $chart;
-    }
+  if ($graph['access'] == 'clevel' && $level == 'clevel') {
+    $output [$key] = $graph;
   }
-}
-
-if ($level == 'clevel') {
-  foreach ($graphs as $chart) {
-    $output[] = $chart;
+  if ($graph['access'] == 'employee' && ($level == 'employee' || $level == 'clevel')) {
+    $output [$key] = $graph;
   }
 }
 
